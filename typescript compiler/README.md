@@ -31,3 +31,33 @@
 - 빌드의 결과물을 어떤 버전으로 할 것이냐
 ## lib
 - 기본 type definition 라이브러리를 어떤 것으로 사용할 것이냐
+
+# compileOptions - outDir, outFile, rootDir
+
+# compileOPtions - strict
+- Enable all strict type checking options
+- typeScript에서는 strict는 true로 사용되어야함
+
+## noImplicitAny
+- 명시적이지 않게 any 타입을 사용하여, 표현식과 선언에 사용하면, 에러를 발생
+
+## suppressImplicitAnyIndexErrors
+- nolmplicitAny 사용할 때, 인덱스 객체에 인덱스 signature가 없는 경우 오류가 발생 하는데 이를 예외 처리
+
+## noImplicitThis
+- 명시적이지 않게 any 타입을 사용하여, this 표현식에 사용하면, 에러를 발생
+
+## strictNullChecks
+- null 및 undefined값이 모든 유형의 도메인에 속하지 않으며, 그 자신을 타입으로 가지거나,any 일 경우에만 할당 가능
+
+## strictFunctionTypes
+- 함수 타입에 대한 bivariant 매개변수 검사를 비활성화하는 옵션
+
+## strictPropertyInitialization
+- 정의되지 않은 클래스의 속성이 생성자에서 초기화 되었는지 확인(위 옵션을 사용하려면 stritNullChecks를 사용하도록 설정해야함)
+
+## strictBindCallApply
+- Function의 내장 함수인 bind/call/apply를 사용할 때, 엄격하게 체크하도록 하는 옵션
+
+## alwaysStrict
+- 각 소스 파일에 대해 JS의 strict mode로 코드를 분석하고 '엄격하게 사용'을 해제
