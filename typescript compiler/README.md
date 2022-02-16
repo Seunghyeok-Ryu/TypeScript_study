@@ -1,0 +1,2 @@
+# compileOnSave
+- "compileOnSave" : true,
