@@ -25,3 +25,9 @@
 - typeRoots를 사용하면 : 배열 안에 들어있는 경로들 아래서 가져옴
 - types를 사용하면 : 배열 안의 모듈 혹은 ./node_modules/@types/안의 모듈 이름에서 찾아옴. [] 빈 배열은 이 시스템을 이용하지 않겠다는 뜻
 - typeRoots와 types를 같이 사용하지 않음
+
+# compileOptions-target과 lib
+## target
+- 빌드의 결과물을 어떤 버전으로 할 것이냐
+## lib
+- 기본 type definition 라이브러리를 어떤 것으로 사용할 것이냐
