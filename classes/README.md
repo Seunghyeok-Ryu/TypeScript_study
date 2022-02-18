@@ -271,6 +271,7 @@ true
 
 # 상속(Inheritance)
 - 상속 받은 자식 요소에서는 super를 먼저 사용해줘야 함
+- 
 ```java
 class Parent {
   constructor(protected _name:string, private _age:number) {
@@ -312,4 +313,28 @@ c.print();    // 부모 요소 print 출력
 ```
 Mark Jr. 15 
 이름은 Mark Jr. 이고 나이는 15 입니다.
+```
+
+# Abstract Classes
+- Abstract로 사용된 class 는 완전하지 않아서 new라는 키워드를 사용할 수 없음
+- Abstract로 사용된 class를 상속하면 Abstract가 붙은 함수를 구현하여 완전하게 만들어서 사용(자동 생성 가능)
+```java
+abstract class AbstractPerson {   
+  // class 내부에 abstract를 사용할 경우 calss 앞에 abstract 라고 붙여줘야 함
+  protected _name: string = "Mark";
+
+  abstract setname(name:string) : void; // {}   
+  // abstract를 사용 할 경우 뒤에 {}를 붙여서 구현하지 않음
+}
+
+// new AbstractPerson()
+
+class Person extends AbstractPerson {
+  setname(name: string): void {
+    this._name = name;
+  }
+}
+
+const p = new Person();
+p.setname;
 ```
