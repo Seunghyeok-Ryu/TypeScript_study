@@ -1,21 +1,26 @@
-// class => object
-// {mark : 'male', jade : 'male'};
-// {chloe : 'female', alex : 'male, anna : 'female'};
+class Person {
+  private static CITY = "Seoul";
 
-class Students {
-  [index :string] : 'male' | 'female';
-
-  jason : 'male' = 'male';
+  public hello() {
+    console.log('안녕하세요', Person.CITY);
+  }
+  
+  public change() {
+    Person.CITY = "LA";
+  }
 }
-const a = new Students ();
-a.mark = 'male';
-a.jade = 'male';
 
-console.log(a);
+const p1 = new Person();
+p1.hello();
 
-const b = new Students ();
-b.chloe = 'female';
-b.alex = 'male';
-b.anna = 'female';
+const p2 = new Person();
+p2.hello();
+p1.change();
+p2.hello();
 
-console.log(b);
+class Person2 {
+  public static hello2() {
+    console.log('안녕하세요')
+  }
+}
+Person2.hello2();

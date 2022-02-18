@@ -195,3 +195,48 @@ Students {
   anna: 'female'
 }
 ```
+
+# Static Properties & Methods
+- Static Methods
+```java
+class Person2 {
+  public static hello2() {
+    console.log('안녕하세요')
+  }
+
+Person2.hello2();   // class에 직접 호출
+}
+```
+- 출력 값
+```
+안녕하세요
+```
+
+- Static Properties
+```java
+class Person {
+  private static CITY = "Seoul";
+
+  public hello() {
+    console.log('안녕하세요', Person.CITY);
+  }
+  
+  public change() {
+    Person.CITY = "LA";
+  }
+}
+
+const p1 = new Person();
+p1.hello();   // 안녕하세요 Seoul
+
+const p2 = new Person();
+p2.hello();   // 안녕하세요 Seoul
+p1.change();    // CITY가 LA로 변환
+p2.hello();   // 안녕하세요 LA
+```
+- 출력 값
+```
+안녕하세요 Seoul
+안녕하세요 Seoul
+안녕하세요 LA
+```
