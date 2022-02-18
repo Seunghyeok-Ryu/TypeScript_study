@@ -141,4 +141,18 @@ console.log(p1.name);
 get  
 Mark AAAA   
 set  
-Anna AAAA  
+Anna AAAA    
+
+
+# readonly properties
+- 초기 값 설정(2가지 방법, 직접/constructor) 후 값 변경 불가
+```java
+class Person {
+  public readonly name : string = "Mark";   // 직접 값 할당
+  private readonly country : string;
+    // constructor를 이용한 값 할당
+  public constructor (private _name: string, public age: number) {
+    this.country = "Korea"
+  }
+}
+```

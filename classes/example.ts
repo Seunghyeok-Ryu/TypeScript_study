@@ -1,15 +1,9 @@
 class Person {
-  public constructor (private _name: string, public age: number) {}
+  public readonly name : string = "Mark";
+  private readonly country : string;
 
-  get name() {
-      //
-      console.log('get');
-    return this._name + " AAAA";
-  }
-
-  set name(n : string) {
-    console.log('set');
-    this._name = n;
+  public constructor (private _name: string, public age: number) {
+    this.country = "Korea"
   }
 }
 
