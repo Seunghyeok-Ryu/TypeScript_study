@@ -72,3 +72,26 @@ class Person {
 ```
 - 클래스의 프로퍼티가 정의되어 있지만, 값을 대입하지 않으면 undefined이다
 - 생성자에는 async를 설정할 수 없다
+
+# 접근 제어자(Access Modifiers)
+- 접근 제어자에는 public, private, protected가 있다
+- 설정하지 않으면 public 이다(기본값)
+- 클래스 내부의 모든 곳(생성자,프로퍼티,메서드) 설정 가능
+```java
+class Person {
+  public name: string ="Mark";
+  private age!: number;
+
+  public constructor(age?:number) {
+    if(age === undefined) {
+      this.age = 20;
+    }else {
+      this.age = age;
+    }
+  }
+  public async init(){
+  }
+}
+```
+- private 으로 설정하면 클래스 외부에서 접근할 수 없음
+- JS에서 private 지원하지 않아 오랫동안 프로퍼티나 메서드 이름앞에 _를 붙여 표현됨
