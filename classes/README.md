@@ -138,11 +138,12 @@ p1.name = "Anna"      // set을 하는 함수 setter
 console.log(p1.name);
 ```
 - 출력 값  
+```bash
 get  
 Mark AAAA   
 set  
 Anna AAAA    
-
+```
 
 # readonly properties
 - 초기 값 설정(2가지 방법, 직접/constructor) 후 값 변경 불가
@@ -154,5 +155,43 @@ class Person {
   public constructor (private _name: string, public age: number) {
     this.country = "Korea"
   }
+}
+```
+
+# Index Signatures in Class
+- 프로퍼티가 고정된 것이 아닌 동적인 경우 사용함
+```java
+// class => object
+// {mark : 'male', jade : 'male'};
+// {chloe : 'female', alex : 'male, anna : 'female'};
+
+class Students {
+  [index :string] : 'male' | 'female';
+  // 어떠한 프로퍼티가 들어와도 'male' 또는  'female' 을 값으로 가져야 함
+
+  jason : 'male' = 'male';
+  // 'male' 이 아닌 다른 값('hello','man','girl')을 가질 수 없음
+}
+const a = new Students ();
+a.mark = 'male';
+a.jade = 'male';
+
+console.log(a);
+
+const b = new Students ();
+b.chloe = 'female';
+b.alex = 'male';
+b.anna = 'female';
+
+console.log(b);
+```
+- 출력 값
+```bash
+Students { jason: 'male', mark: 'male', jade: 'male' }
+Students {
+  jason: 'male',
+  chloe: 'female',
+  alex: 'male',
+  anna: 'female'
 }
 ```
