@@ -75,3 +75,22 @@ const helloFunction2:HelloFunctionGeneric2 = <T>(message:T): T => {
   return message;
 };
 ```
+
+# Generic Class
+- 컴파일 타임에 미리 error를 체크할 수 있음
+```java
+class Person<T, K> {
+  private _name: T;
+  private _age : K;
+  
+
+  constructor(name:T, age:K) {
+    this._name = name;
+    this._age = age;
+  }
+}
+
+new Person("Mark",25);
+// new Person<string>(25);    error
+// new Person<string, number>("Mark","age") error
+```
