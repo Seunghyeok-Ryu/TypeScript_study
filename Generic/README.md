@@ -56,3 +56,22 @@ function helloTuple<T, K> (message : [T, K]) : T {
 helloTuple(["hello", 'world']);   // type : string으로 추론
 helloTuple(['hello', 25]);    // Type : string | number로 추론 message[0]번째 배열은 string으로 정확하게 추론(Array와 차이점)
 ```
+
+# Generics Function
+- type alias 방법
+```java
+type HelloFunctionGeneric1 = <T> (message: T) => T;
+const HelloFunction1: HelloFunctionGeneric1 = <T> (message: T) : T => {
+  return message;
+};
+```
+- interface 방법
+```java
+interface HelloFunctionGeneric2 {
+  <T>(message: T): T
+}
+
+const helloFunction2:HelloFunctionGeneric2 = <T>(message:T): T => {
+  return message;
+};
+```
