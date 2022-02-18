@@ -95,3 +95,21 @@ class Person {
 ```
 - private 으로 설정하면 클래스 외부에서 접근할 수 없음
 - JS에서 private 지원하지 않아 오랫동안 프로퍼티나 메서드 이름앞에 _를 붙여 표현됨
+
+# Initializtion in constructor parameters
+- public 을 통해 class 내부 식 간단화
+```java
+class Person {
+  name : string;
+  age : number
+  constructor (name: string, age:number) {
+    this.name = name;
+    this.age = age;
+  }
+}
+```
+```java
+class Person {
+  public constructor (public name: string, public age: number) {}
+}
+```
