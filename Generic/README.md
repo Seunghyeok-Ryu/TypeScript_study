@@ -24,3 +24,15 @@ console.log(helloGeneric('Mark').length);
 console.log(helloGeneric(25));
 console.log(helloGeneric(true));
 ```
+
+# Generic Basic
+- 지정한 변수의 개수 만큼 지정해줘야함
+- T, U 두개를 변수로 지정했다면 <string, number> 두개 지정 / <string> 하나만 지정한다면 error 발생
+```java
+function helloBasic<T, U> (message: T, comment : U) : T {
+  return message;
+}
+
+helloBasic<string, number>('Mark',25);   // type을 직접 지정하는 방식
+helloBasic(25, 23);   // 들어간 값에 의해서 type 추정
+```
