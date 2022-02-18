@@ -268,3 +268,48 @@ console.log(a === b);
 ```
 true
 ```
+
+# 상속(Inheritance)
+- 상속 받은 자식 요소에서는 super를 먼저 사용해줘야 함
+```java
+class Parent {
+  constructor(protected _name:string, private _age:number) {
+
+  }
+  public print() : void {
+    console.log(`이름은 ${this._name} 이고 나이는 ${this._age} 입니다.`);
+  }
+  protected printName(): void {
+    console.log(this._name, this._age);   // Mark Jr.  15 출력
+  }
+}
+
+// const p = new Parent("Mark", 25);
+// p.print();
+
+class Child extends Parent {
+
+  public gender = 'male';
+
+  constructor(age: number) {
+    super('Mark Jr.', age)    // 상속 받은 경우 super를 먼저 사용해야함
+    // 부모 요소의 constructor 와 같은 형태(name, age)
+    this.printName();   // 부모 요소의 printName 실행 
+  }
+}
+
+const c = new Child(15);
+
+c.print();    // 부모 요소 print 출력
+```
+- 출력 값
+1. 자식(Child) 요소에서 super를 통해 값을 받고 printName 실행
+1. 부모(Parent) 요소에서 printName 실행
+  - 부모 요소에 있는 프로퍼티(_name, _age)를 받아서 실행
+  - Mark Jr. 15  출력
+1. c.print 를 통해 부모 요소 print 실행
+1. 이름은 Mark Jr. 이고 나이는 15 입니다. 출력 
+```
+Mark Jr. 15 
+이름은 Mark Jr. 이고 나이는 15 입니다.
+```

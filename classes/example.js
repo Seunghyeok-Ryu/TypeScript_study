@@ -1,16 +1,24 @@
 "use strict";
-class ClassName {
-    constructor() {
+class Parent {
+    constructor(_name, _age) {
+        this._name = _name;
+        this._age = _age;
     }
-    static getInstance() {
-        // ClassName 으로부터 만든 object가 있으면 그걸 return
-        // 없으면 만들어서 return
-        if (ClassName.instance === null) {
-            ClassName.instance = new ClassName();
-        }
+    print() {
+        console.log(`이름은 ${this._name} 이고 나이는 ${this._age} 입니다.`);
+    }
+    printName() {
+        console.log(this._name, this._age);
     }
 }
-ClassName.instance = null;
-const a = ClassName.getInstance();
-const b = ClassName.getInstance();
-console.log(a === b);
+// const p = new Parent("Mark", 25);
+// p.print();
+class Child extends Parent {
+    constructor(age) {
+        super('Mark Jr.', age);
+        this.gender = 'male';
+        this.printName();
+    }
+}
+const c = new Child(15);
+c.print();
