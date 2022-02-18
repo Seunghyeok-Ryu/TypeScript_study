@@ -36,3 +36,23 @@ function helloBasic<T, U> (message: T, comment : U) : T {
 helloBasic<string, number>('Mark',25);   // type을 직접 지정하는 방식
 helloBasic(25, 23);   // 들어간 값에 의해서 type 추정
 ```
+
+# Generic Array & Tuple
+- Array
+```java
+function helloArray<T> (message: T[]): T{
+  return message[0];
+}
+
+helloArray(['hello', 'world']);   // Type : string으로 추론
+helloArray(['hello',25]);     // Type : string | number로 추론
+```
+- Tuple
+```java
+function helloTuple<T, K> (message : [T, K]) : T {
+  return message[0];
+}
+
+helloTuple(["hello", 'world']);   // type : string으로 추론
+helloTuple(['hello', 25]);    // Type : string | number로 추론 message[0]번째 배열은 string으로 정확하게 추론(Array와 차이점)
+```
