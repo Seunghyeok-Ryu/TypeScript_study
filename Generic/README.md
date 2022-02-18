@@ -94,3 +94,20 @@ new Person("Mark",25);
 // new Person<string>(25);    error
 // new Person<string, number>("Mark","age") error
 ```
+
+# Generics with extends
+- <T extends string | number | boolean>형식을 통해 사용
+```java
+class PersonExtends <T extends string | number> {
+  // <T extends string | number>를 통해 제약을 걸어줌
+  private _name : T;
+
+  constructor(name:T) {
+    this._name = name;
+  }
+};
+
+new PersonExtends("Mark");
+new PersonExtends(39);
+// new PersonExtends(true);   T는 string과 number로 제약 되있음 error발생
+```
