@@ -111,3 +111,52 @@ new PersonExtends("Mark");
 new PersonExtends(39);
 // new PersonExtends(true);   T는 string과 number로 제약 되있음 error발생
 ```
+
+# keyof & type lookup system
+
+```java
+interface IPerson {
+  name: string;
+  age: number;
+}
+const person: IPerson = {
+  name : 'Mark',
+  age: 25,
+};
+
+// IPerson[keyof IPerson]
+// => IPerson["name" | "age"]
+// => IPerson["name"] | IPerson["age"]
+// => string | number
+
+function getProp<T, K extends keyof T> (obj: T, key: K): T[K] {
+  // T는 person을 통해 IPerson으로 추론됨
+  // K extends keyof T(T는 "name" | "age" union type이 아닌 "name" or "age"로 지정됨)
+  // T[K] => IPerson["age"] 인 number type로 지정
+  return obj[key];
+}
+
+getProp(person, 'age')
+// function getProp<IPerson, "age">(obj: IPerson, key: "age"): number
+console.log(person)
+
+function setProp<T, K extends keyof T>(
+  // T는 IPerson으로 추론
+  // K extends keyof T(T는 "name" | "age" union type이 아닌 "name" or "age"로 지정됨) => "name"
+  // T[K] => IPerson("name")인 string type로 지정
+  obj : T, 
+  key : K, 
+  value : T[K]
+  ) : void {
+  obj[key] = value;
+}
+
+setProp(person, "name", "Max")
+// function setProp<IPerson, "name">(obj: IPerson, key: "name", value: string): void
+console.log(person)
+```
+- 출력 값
+```
+{ name: 'Mark', age: 25 }
+{ name: 'Max', age: 25 }
+```
